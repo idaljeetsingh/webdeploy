@@ -37,6 +37,12 @@ There are two ways for initiating the deploy sequence
 
 `WebDeploy-django`
 
+## Tutorial
+
+Flask: <a href="https://medium.com/@idaljeetsingh/deploying-flask-app-on-ubuntu-using-webdeploy-eb41aa44ea76?source=---------2------------------">Deploying Flask App on Ubuntu using WebDeploy</a>
+
+Django: <a href="https://medium.com/@idaljeetsingh/deploying-django-app-on-ubuntu-using-webdeploy-fda44bba620a">Deploying Django App on Ubuntu using WebDeploy</a>
+
 ## License
 
 [MIT License](LICENSE)
