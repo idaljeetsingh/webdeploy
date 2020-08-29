@@ -2,7 +2,7 @@
     File            :   deploy_django.py
     Author          :   Daljeet Singh Chhabra
     Date Created    :   03-07-2020
-    Date Modified   :   06-07-2020
+    Date Modified   :   29-08-2020
 """
 import os
 from getpass import getuser
@@ -45,14 +45,15 @@ class Deploy:
         with open(service_path, 'w') as service:
             env_path = os.path.join(self.project_directory, 'venv', 'bin')
             content = '[Unit]\n' \
-                      'Description=Gunicorn instance to serve Django App{project}\n' \
+                      'Description=Gunicorn instance to serve Django App {project}\n' \
                       'After=network.target\n\n' \
                       '[Service]\n' \
                       'User={user}\n' \
                       'Group=www-data\n' \
                       'WorkingDirectory={wd}\n' \
                       'Environment="PATH={env}"\n' \
-                      'ExecStart={env}/gunicorn --workers 2 --bind 127.0.0.1:8000 -m 007 {project}.wsgi:application\n\n' \
+                      'ExecStart={env}/gunicorn --workers 2 --bind unix:{project}.sock ' \
+                      '-m 007 {project}.wsgi:application\n\n' \
                       '[Install]\n' \
                       'WantedBy=multi-user.target\n' \
                       ''.format(project=self.project_name, wd=self.project_directory, env=env_path, user=getuser())
@@ -75,12 +76,13 @@ class Deploy:
         print('Creating nginx configuration file for {}...'.format(self.project_name))
         config_path = '/etc/nginx/sites-available/djangoApp_{}'.format(self.project_name)
         domains = input('Enter the domain names (space separated) on which you have to host the Django app: ')
+        print('Please ensure the domain(s) in the Allowed Domains list in settings.py of your project.')
         with open(config_path, 'w') as config_file:
             content = 'server {{\n' \
                       '    listen      80;\n' \
                       '    server_name {domains};\n' \
                       "    location / {{\n" \
-                      '        proxy_pass         "http://127.0.0.1:8000";\n' \
+                      '        proxy_pass         "http://unix:/{project_dir}/{project}.sock";\n' \
                       '        proxy_redirect     off;\n' \
                       '        proxy_set_header   Host $host;\n' \
                       '        proxy_set_header   X-Real-IP $remote_addr;\n' \

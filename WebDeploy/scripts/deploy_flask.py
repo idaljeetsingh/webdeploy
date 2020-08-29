@@ -2,7 +2,7 @@
     File            :   deploy_flask.py
     Author          :   Daljeet Singh Chhabra
     Date Created    :   03-07-2020
-    Date Modified   :   06-07-2020
+    Date Modified   :   29-08-2020
 """
 import os
 from getpass import getuser
@@ -58,14 +58,14 @@ class Deploy:
         with open(service_path, 'w') as service:
             env_path = os.path.join(self.project_directory, 'venv', 'bin')
             content = '[Unit]\n' \
-                      'Description=Gunicorn instance to serve {project}\n' \
+                      'Description=Gunicorn instance to serve Flask App {project}\n' \
                       'After=network.target\n\n' \
                       '[Service]\n' \
                       'User={user}\n' \
                       'Group=www-data\n' \
                       'WorkingDirectory={wd}\n' \
                       'Environment="PATH={env}"\n' \
-                      'ExecStart={env}/gunicorn --workers 2 --bind 127.0.0.1:5000 -m 007 wsgi:{app}\n\n' \
+                      'ExecStart={env}/gunicorn --workers 2 --bind unix:{project}.sock -m 007 wsgi:{app}\n\n' \
                       '[Install]\n' \
                       'WantedBy=multi-user.target\n' \
                       ''.format(project=self.project_name, wd=self.project_directory, env=env_path, app=self.app_name,
@@ -94,7 +94,7 @@ class Deploy:
                       '    listen      80;\n' \
                       '    server_name {domains};\n' \
                       "    location / {{\n" \
-                      '        proxy_pass         "http://127.0.0.1:5000";\n' \
+                      '        proxy_pass         "http://unix:/{project_dir}/{project}.sock";\n' \
                       '        proxy_redirect     off;\n' \
                       '        proxy_set_header   Host $host;\n' \
                       '        proxy_set_header   X-Real-IP $remote_addr;\n' \
@@ -104,7 +104,7 @@ class Deploy:
                       '    error_log  /var/log/nginx/flaskApp_{project}.log;\n' \
                       '    access_log /var/log/nginx/flaskApp_{project}_access.log;\n' \
                       '}}\n' \
-                      ''.format(domains=domains, project=self.project_name)
+                      ''.format(domains=domains, project=self.project_name, project_dir=self.project_directory)
 
             config_file.write(content)
         print('> NGINX config completed...')

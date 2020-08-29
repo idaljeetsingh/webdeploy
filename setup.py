@@ -2,7 +2,7 @@
     File            :   setup.py
     Author          :   Daljeet Singh Chhabra
     Date Created    :   03-07-2020
-    Date Modified   :   06-07-2020
+    Date Modified   :   29-08-2020
 """
 import setuptools
 
@@ -15,7 +15,7 @@ setuptools.setup(
     name='WebDeploy',
     license="MIT",
     description='WebDeploy is a python package for deploying Flask/Django applications at ease.',
-    version='v1.0.1',
+    version='v1.0.2',
     long_description=README,
     long_description_content_type='text/markdown',
     entry_points={
