@@ -29,6 +29,10 @@ $ sudo python3 setup.py install
 * ***Installing the package using sudo is necessary as it will make changes on system by installing packages to deploy the app.***
 
 
+## Databases Supported
+
+* MongoDB
+
 ## Usage
 
 Using the package is very simple. Just open the terminal and type respective command for either Flask or Django app.<br>
