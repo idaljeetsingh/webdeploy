@@ -9,7 +9,12 @@ A simple command line package for deploying Flask/Django apps on a Ubuntu system
 [![PyPI license](https://img.shields.io/pypi/l/WebDeploy.svg)](https://pypi.python.org/pypi/WebDeploy/)
 
 
-## Install
+## Changelog <samp>v1.1.0</samp> 📣
+
+⚡ Added support for MongoDB 
+
+
+## Install ⌨️
 
 ### Using pip 
 
@@ -23,13 +28,17 @@ $ cd webdeploy
 $ sudo python3 setup.py install
 ```
 
-## Notes
+## Notes 📝
 
 * A fresh Ubuntu installation is preferred.
 * ***Installing the package using sudo is necessary as it will make changes on system by installing packages to deploy the app.***
 
 
-## Usage
+## Databases Supported 🦾 
+
+* MongoDB
+
+## Usage ⚙️
 
 Using the package is very simple. Just open the terminal and type respective command for either Flask or Django app.<br>
 There are two ways for initiating the deploy sequence
@@ -44,12 +53,15 @@ There are two ways for initiating the deploy sequence
 
 `WebDeploy-django`
 
-## Tutorial
+## Tutorials 📚
 
 Flask: <a href="https://medium.com/@idaljeetsingh/deploying-flask-app-on-ubuntu-using-webdeploy-eb41aa44ea76?source=---------2------------------">Deploying Flask App on Ubuntu using WebDeploy</a>
 
 Django: <a href="https://medium.com/@idaljeetsingh/deploying-django-app-on-ubuntu-using-webdeploy-fda44bba620a">Deploying Django App on Ubuntu using WebDeploy</a>
 
-## License
+## License 📜
 
-[MIT License](LICENSE)
+[MIT License](LICENSE) © [Daljeet Singh Chhabra](https://GitHub.com/iDaljeetSingh)
+
+
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
