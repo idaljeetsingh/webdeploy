@@ -2,7 +2,7 @@
     File            :   config.py
     Author          :   Daljeet Singh Chhabra
     Date Created    :   05-07-2020
-    Date Modified   :   05-07-2020
+    Date Modified   :   04-09-2020
 """
 import os
 import subprocess
@@ -112,7 +112,7 @@ class SystemConfig:
 def execute_system_config():
     """
         Function to execute system config commands
-    :return:
+    :return: Dict of project details
     """
     run = SystemConfig()
     print('Starting to configure system for deployment...')
