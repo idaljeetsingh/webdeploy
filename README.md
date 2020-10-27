@@ -3,7 +3,7 @@
 A simple command line package for deploying Flask/Django apps on a Ubuntu system. <br>
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Downloads](https://pepy.tech/badge/webdeploy)](https://pepy.tech/project/webdeploy)
+[![Downloads](https://static.pepy.tech/personalized-badge/webdeploy?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/webdeploy)
 [![PyPI version shields.io](https://img.shields.io/pypi/v/WebDeploy.svg)](https://pypi.python.org/pypi/WebDeploy/)
 [![GitHub issues](https://img.shields.io/github/issues/idaljeetsingh/WebDeploy.svg)](https://GitHub.com/idaljeetsingh/WebDeploy/issues/)
 [![PyPI license](https://img.shields.io/pypi/l/WebDeploy.svg)](https://pypi.python.org/pypi/WebDeploy/)
