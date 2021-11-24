@@ -64,4 +64,4 @@ Django: <a href="https://medium.com/@idaljeetsingh/deploying-django-app-on-ubunt
 [MIT License](LICENSE) © [Daljeet Singh Chhabra](https://GitHub.com/iDaljeetSingh)
 
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/iDaljeetSingh/)
